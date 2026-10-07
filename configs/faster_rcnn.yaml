@@ -1,0 +1,17 @@
+# Faster R-CNN configurations of Table 9 (Detectron2, R50-FPN 3x, COCO-pretrained).
+# F02 is the final model used in Tables 8, 13 and 14.
+# max_iter = ceil(num_train_images / batch_size) * epochs = 275 * epochs  (2198 training images, batch 8)
+common:
+  base_config: COCO-Detection/faster_rcnn_R_50_FPN_3x.yaml
+  batch_size: 8
+  base_lr: 0.00025
+  lr_steps: [0.7, 0.9]      # LR x 0.1 at 70% and 90% of max_iter
+  roi_batch_size_per_image: 128
+  amp: true
+  num_workers: 4
+  seed: 42
+
+models:
+  F01: {img_size: 640, epochs: 150}   # 41,250 steps
+  F02: {img_size: 800, epochs: 150}   # 41,250 steps
+  F03: {img_size: 800, epochs: 200}   # 55,000 steps

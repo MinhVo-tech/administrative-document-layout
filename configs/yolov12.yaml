@@ -1,0 +1,13 @@
+# YOLOv12 configurations of Table 10 (Ultralytics 8.3.170).
+# YL02 is the final model used in Tables 8, 13, 14 and 16.
+common:
+  weights: yolo12s.pt     # COCO-pretrained YOLOv12-S, downloaded by Ultralytics
+  epochs: 150
+  seed: 123               # Table 8 repeats YL02 with seeds 7, 42, 66, 123, 777, 1024, 2027, 3407, 4096, 9999
+  # every other hyper-parameter (optimizer, lr, augmentation, ...) = Ultralytics 8.3.170 defaults
+
+models:
+  YL01: {imgsz: 640, batch: 8}
+  YL02: {imgsz: 800, batch: 8}
+  YL03: {imgsz: 640, batch: 16}
+  YL04: {imgsz: 800, batch: 16}

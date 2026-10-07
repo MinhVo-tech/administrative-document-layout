@@ -1,0 +1,16 @@
+# RetinaNet configurations of Table 11 (Detectron2, R50-FPN 3x, COCO-pretrained).
+# Re03 is the final model used in Tables 8, 13 and 14.
+# max_iter = ceil(num_train_images / batch_size) * epochs = 275 * epochs  (2198 training images, batch 8)
+common:
+  base_config: COCO-Detection/retinanet_R_50_FPN_3x.yaml
+  batch_size: 8
+  base_lr: 0.00025
+  lr_steps: [0.7, 0.9]
+  amp: true
+  num_workers: 4
+  seed: 42
+
+models:
+  Re01: {img_size: 640, epochs: 150}  # 41,250 steps
+  Re02: {img_size: 800, epochs: 150}  # 41,250 steps
+  Re03: {img_size: 800, epochs: 200}  # 55,000 steps

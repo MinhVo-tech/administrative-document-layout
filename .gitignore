@@ -1,0 +1,23 @@
+# Private notes
+NOTES_TODO.txt
+
+# Large files distributed on Zenodo (see README.md)
+dataset/images/
+dataset/pdf-test/
+models/*
+!models/README.md
+dist/
+
+# Generated
+outputs/
+runs/
+*.pt
+*.pth
+*.pkl
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/

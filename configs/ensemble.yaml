@@ -1,0 +1,12 @@
+# Table 14 - inference-time ensembles of the three final detectors.
+#   M01 = YOLOv12 (YL02) + Faster R-CNN (F02)
+#   M02 = YOLOv12 (YL02) + Faster R-CNN (F02) + RetinaNet (Re03)
+# Precision / Recall / F1: member boxes with score >= 0.5, fused with the parameters below.
+# mAP: member boxes with score >= 0.001 (full PR curve), same fusion parameters.
+inference_img_size: {YL02: 800, F02: 800, Re03: 800}
+
+rows:
+  - {model: M01, method: Soft-NMS, kind: softnms, members: [YL02, F02], sigma: 0.13, iou: 0.05, report_thresh: 0.8}
+  - {model: M02, method: Soft-NMS, kind: softnms, members: [YL02, F02, Re03], sigma: 0.13, iou: 0.15, report_thresh: 0.8}
+  - {model: M01, method: WBF, kind: wbf, members: [YL02, F02], iou_thr: 0.25, skip_box_thr: 0.005, weights: null}
+  - {model: M02, method: WBF, kind: wbf, members: [YL02, F02, Re03], iou_thr: 0.5, skip_box_thr: 0.021, weights: [2, 2, 1]}

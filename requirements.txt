@@ -1,0 +1,20 @@
+# Python 3.10 - 3.12. A CUDA GPU is needed for training and for running the detectors / OCR.
+# Versions used for the paper results are given in README.md ("Environment").
+
+torch>=2.2
+torchvision
+ultralytics==8.3.170
+numpy
+pandas
+scipy
+pyyaml
+opencv-python
+ensemble-boxes
+pdf2image==1.17.0      # also needs poppler (apt-get install poppler-utils / conda install poppler)
+pymupdf                # dataset/tools/pdf_types.py only
+
+# VietOCR inference dependencies (VietOCR itself is installed with --no-deps, see README.md)
+einops==0.2.0
+gdown==4.4.0
+
+# Detectron2 (Faster R-CNN, RetinaNet) is installed from source, see README.md

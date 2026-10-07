@@ -1,0 +1,14 @@
+# Paths used by every script. Relative paths are resolved from the repository root.
+dataset:
+  images: dataset/images              # <split>/<image>.jpg      (download, see dataset/README.md)
+  labels: dataset/labels              # <split>/<image>.txt      YOLO labels (in this repository)
+  voc: dataset/annotations/voc        # <split>/<image>.xml      Pascal VOC labels (in this repository)
+  pdf_test: dataset/pdf-test          # <Type>/<doc>.pdf         154 test PDFs (download)
+  ocr_gt: dataset/annotations/ocr_gt.json
+
+models:                               # download, see README.md
+  YL02: models/YL02.pt
+  F02: models/F02.pth
+  Re03: models/Re03.pth
+
+outputs: outputs                      # predictions, tables, training runs
